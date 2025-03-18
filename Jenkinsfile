@@ -10,9 +10,9 @@ pipeline {
 
             steps {
                 script {
-                    sh 'mkdir -p reports'
+                    
                     sh 'npm ci'
-                    sh 'npx cucumber-js '
+                    sh 'npx cucumber-js'
                     //sh 'allure generate ./allure-results -o ./allure-report'
                     stash name: 'allure-results', includes: 'allure-results/*'
                 }
