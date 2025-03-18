@@ -39,7 +39,7 @@ pipeline {
             //         fileIncludePattern: 'reports/cucumber-report.json', // Corrige le chemin d'inclusion
             //         sortingMethod: 'ALPHABETICAL',
             //         trendsLimit: 100
-            unstash 'allure-results' //extract results
+           // unstash 'allure-results' //extract results
             script {
                 allure([
                 includeProperties: false,
