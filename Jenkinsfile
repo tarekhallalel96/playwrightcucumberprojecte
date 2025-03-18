@@ -17,6 +17,7 @@ pipeline {
                     sh 'npx cucumber-js'
                     //sh 'allure generate ./allure-results -o ./allure-report'
                     stash name: 'allure-results', includes: './allure-results/*'
+                    stash name: 'allure-results', includes: 'allure-results/**', allowEmpty: true
                 }
             }
         }
@@ -40,13 +41,27 @@ pipeline {
             //         trendsLimit: 100
             unstash 'allure-results' //extract results
             script {
+                // allure([
+                // includeProperties: false,
+                // jdk: '',
+                // properties: [],
+                // reportBuildPolicy: 'ALWAYS',
+                // results: [[path: './allure-results']]
+           // ])
+           try {
+                unstash 'allure-results'
+                sh 'ls -al allure-results/ || echo "❌ Erreur: Le dossier allure-results n'a pas été restauré après unstash !"'
+
                 allure([
-                includeProperties: false,
-                jdk: '',
-                properties: [],
-                reportBuildPolicy: 'ALWAYS',
-                results: [[path: './allure-results']]
-            ])
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+                ])
+            } catch (Exception e) {
+                echo "⚠️ Aucun résultat Allure trouvé après unstash."
+            }
             }
         }
     }
