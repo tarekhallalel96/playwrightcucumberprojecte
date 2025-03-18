@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+        
         stage('build and install') {
             agent {
                 docker {
@@ -12,7 +13,7 @@ pipeline {
             steps {
                 script {
                     sh 'npm ci'
-                    sh 'npx playwright test --reporter=line,allure-playwright'
+                    sh 'npx cucumber-js --format json:reports/cucumber-report.json'
                     stash name: 'allure-results', includes: 'allure-results/*'
                 }
             }

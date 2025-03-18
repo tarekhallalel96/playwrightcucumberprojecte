@@ -23,4 +23,5 @@ export default defineConfig({
 //       use: { ...devices['Desktop Chrome'] },
 //     },
 //   ],
+reporter: [["line"], ["allure-playwright"]],
 });
