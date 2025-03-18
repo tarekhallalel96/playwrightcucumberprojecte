@@ -14,7 +14,7 @@ pipeline {
                     sh 'npm ci'
                     sh 'npx cucumber-js'
                     //sh 'allure generate ./allure-results -o ./allure-report'
-                    stash name: 'allure-results', includes: 'allure-results/*'
+                    stash name: 'allure-results', includes: './allure-results/*'
                 }
             }
         }
@@ -43,7 +43,7 @@ pipeline {
                 jdk: '',
                 properties: [],
                 reportBuildPolicy: 'ALWAYS',
-                results: [[path: 'allure-results']]
+                results: [[path: './allure-results']]
             ])
             }
         }
