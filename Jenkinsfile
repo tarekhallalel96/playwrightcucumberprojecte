@@ -12,7 +12,7 @@ pipeline {
                 script {
                     
                     sh 'npm ci'
-                    //sh 'ls -al allure-results/ || echo "❌ Aucun fichier allure-results généré !"'
+                    
 
                     sh 'npx cucumber-js'
                     //sh 'allure generate ./allure-results -o ./allure-report'
