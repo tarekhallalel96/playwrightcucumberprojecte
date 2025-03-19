@@ -20,7 +20,7 @@ pipeline {
                     // def tagToUse = params.String_TAG ?: params.CHOICE_TAG
                     // sh "npx cucumber-js --format json:reports/cucumber-report.json --tags '${params.CHOICE_TAG}'"
                     // sh "npm run only '${params.CHOICE_TAG}'"
-                    sh 'npx cucumber-js --format json:reports/cucumber-report.json'
+                    sh 'npx cucumber-js'
                     stash name: 'allure-results', includes: 'allure-results/*'
 
                 }
