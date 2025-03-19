@@ -29,7 +29,10 @@ Given('I am on the dashboard', async function()  {
 
   When('I write the title {string} in  input field', async function (s: string) {
   // Write code here that turns the phrase above into concrete actions
-  await addPost.SaisirTitre(s);
+  const randomSuffix = Math.floor(Math.random() * 10000); // Génère un nombre aléatoire entre 0 et 9999
+  const titreAvecRandom = `${s}_${randomSuffix}`;
+
+  await addPost.SaisirTitre(titreAvecRandom);
 })
 
 When('I write the content {string} in text area', async function(s: string)  {
