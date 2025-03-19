@@ -11,9 +11,10 @@ let loginPage: LoginPage;
 
 Given('I Connect on the dashboard', async function () {
     loginPage = new LoginPage(this.page);
-    await loginPage.goto(config.baseUrl);
+    await loginPage.goto("http://int.siteinfos.com/admin/");
     //await loginPage.goto(config.baseUrl);
-    await loginPage.login(config.username, config.password);
+    //await loginPage.login(config.username, config.password);
+    await loginPage.login("testeur_integration", "testeur_qa");
     
     // Crée un objet dashboard après la connexion
     dashboard = new DashBoardPage(this.page);
