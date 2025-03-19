@@ -13,8 +13,8 @@ pipeline {
             steps {
                 script {
                     sh 'npm ci'
-                    sh 'npx -v'
-                    sh 'npx cucumber-js --format json:reports/cucumber-report.json --format allure-formatter'
+                    sh 'npm install @cucumber/allure-formatter --save-dev'
+                    sh 'npx cucumber-js --format json:reports/cucumber-report.json --format @cucumber/allure-formatter'
                     sh 'ls -la allure-results' // Debugging step
                     if (fileExists('allure-results')) {
                         stash name: 'allure-results', includes: 'allure-results/*'
