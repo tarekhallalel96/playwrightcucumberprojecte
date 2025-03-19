@@ -6,9 +6,9 @@ module.exports = {
       ],
       format: [
          "allure-cucumberjs/reporter",
+         "progress",
         "json:reports/cucumber-report.json", // JSON report for analysis
-        "html:reports/cucumber-report.html",  // HTML report for human-readable output,
-        "allure-cucumberjs/reporter"
+        "html:reports/cucumber-report.html"
       ],
       tags: "@valid or @invalid",  // Run specific tests with tags
       worldParameters: {           // Custom parameters for tests
