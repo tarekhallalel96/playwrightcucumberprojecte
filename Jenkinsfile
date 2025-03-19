@@ -15,17 +15,16 @@ pipeline {
 
             steps {
                 script {
-                    
-                    sh 'npm ci'
-                    // def tagToUse = params.String_TAG ?: params.CHOICE_TAG
-                    // sh "npx cucumber-js --format json:reports/cucumber-report.json --tags '${params.CHOICE_TAG}'"
-                    // sh "npm run only '${params.CHOICE_TAG}'"
-                    sh 'npx -v'
-                    sh 'npx cucumber-js'
-                    stash name: 'allure-results', includes: 'allure-results/*'
-
-                }
-            }
+    sh 'npm ci'
+    sh 'npx -v'
+    sh 'npx cucumber-js'
+    sh 'ls -la allure-results' // Debugging step
+    if (fileExists('allure-results')) {
+        stash name: 'allure-results', includes: 'allure-results/*'
+    } else {
+        echo 'No allure-results directory found to stash.'
+    }
+}
 
         }
     }
