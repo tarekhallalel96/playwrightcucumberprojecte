@@ -15,7 +15,8 @@ pipeline {
 
             steps {
                 script {
-    sh 'npm ci'
+                    
+                    sh 'npm ci'
     sh 'npx -v'
     sh 'npx cucumber-js'
     sh 'ls -la allure-results' // Debugging step
@@ -24,7 +25,9 @@ pipeline {
     } else {
         echo 'No allure-results directory found to stash.'
     }
-}
+
+                }
+            }
 
         }
     }
