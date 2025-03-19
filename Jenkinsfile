@@ -12,9 +12,9 @@ pipeline {
                 script {
                     
                     sh 'npm ci'
-                    sh 'ls -al allure-results/ || echo "❌ Aucun fichier allure-results généré !"'
+                    //sh 'ls -al allure-results/ || echo "❌ Aucun fichier allure-results généré !"'
 
-                    sh 'npx cucumber-js'
+                    sh 'npx cucumber-js --format json:reports/cucumber-report.json'
                     //sh 'allure generate ./allure-results -o ./allure-report'
                     stash name: 'allure-results', includes: './allure-results/*'
                    // stash name: 'allure-results', includes: 'allure-results/**', allowEmpty: true
