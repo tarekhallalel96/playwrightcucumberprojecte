@@ -2,6 +2,7 @@ import { Given, When, Then, Before, After } from '@cucumber/cucumber';
 import { Browser, Page, chromium } from 'playwright';
 import { LoginPage } from '../pages/LoginPage';
 import { expect } from '@playwright/test';
+const config = require('../config'); // Importez la configuration
 
 let browser: Browser;
 let page: Page;
@@ -20,7 +21,8 @@ Before(async function () {
 
 Given('I open the login page {string}', async function (url: string) {
   loginPage = new LoginPage(this.page);
-  console.log(`🔗 Navigation vers : ${url}`);
+  console.log(url);
+  //await loginPage.goto(config.baseUrl);
   await loginPage.goto(url);
 });
 

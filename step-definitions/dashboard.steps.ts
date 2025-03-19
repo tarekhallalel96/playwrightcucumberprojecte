@@ -3,6 +3,7 @@ import { Browser, Page, chromium } from 'playwright';
 import { DashBoardPage } from '../pages/DashboardPage';
 import { expect } from '@playwright/test';
 import LoginPage from '../pages/LoginPage';
+const config = require('../config'); 
 
 let page: Page;
 let dashboard: DashBoardPage;
@@ -10,8 +11,9 @@ let loginPage: LoginPage;
 
 Given('I Connect on the dashboard', async function () {
     loginPage = new LoginPage(this.page);
-    await loginPage.goto("http://192.168.1.95:9091/admin/login/?next=/admin/");
-    await loginPage.login("testeur_integration", "testeur_qa");
+    await loginPage.goto(config.baseUrl);
+    //await loginPage.goto(config.baseUrl);
+    await loginPage.login(config.username, config.password);
     
     // Crée un objet dashboard après la connexion
     dashboard = new DashBoardPage(this.page);

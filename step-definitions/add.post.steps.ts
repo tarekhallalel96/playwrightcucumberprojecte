@@ -4,6 +4,7 @@ import { expect } from '@playwright/test';
 import AddPost from '../pages/AddPost';
 import LoginPage from '../pages/LoginPage';
 import DashBoardPage from '../pages/DashboardPage';
+const config = require('../config'); 
 
 let addPost: AddPost;
 let loginPage: LoginPage;
@@ -13,8 +14,8 @@ let page: Page;
 Given('I am on the dashboard', async function()  {
     loginPage = new LoginPage(this.page);
     //const titre = await this.addPost.TitrePostPage(); // Appelle la fonction pour récupérer le titre
-    await loginPage.goto("http://192.168.1.95:9091/admin/login/?next=/admin/");
-    await loginPage.login("testeur_integration", "testeur_qa");
+    await loginPage.goto(config.baseUrl);
+    await loginPage.login(config.username, config.password);
 
     
     
