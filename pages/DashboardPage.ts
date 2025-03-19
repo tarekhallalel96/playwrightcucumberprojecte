@@ -8,7 +8,9 @@ export class DashBoardPage{
       }
 
       elements = {
-        clicAddPost: () => this.page.locator('a:has-text("Add")'),
+       // clicAddPost: () => this.page.locator('a:has-text("Add")'),
+        clicAddPost: () => this.page.getByRole('link', { name: 'Add' }),
+
         getTitlePost: () => this.page.locator('h1')
       }
 

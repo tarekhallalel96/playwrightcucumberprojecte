@@ -17,7 +17,7 @@ export class LoginPage {
     password: () => this.page.locator('input[name="password"]'),
     submit: () => this.page.locator('input[type="submit"]'),
     errorMessage: () => this.page.locator('.errornote'),
-    dashboard: () => this.page.locator('.dashboard'),
+    dashboard: () => this.page.getByRole('heading', { name: 'Select post to change', level: 1 }),
   }
 
   async SaisirUsername (username : string){
