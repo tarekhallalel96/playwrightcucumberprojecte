@@ -11,11 +11,11 @@ let loginPage: LoginPage;
 let dashboard: DashBoardPage;
 let page: Page;
 
-Given('I am on the dashboard', async function()  {
+Given('I am on the dashboard {string} {string} {string}', async function(url: string, username:string, password: string)  {
     loginPage = new LoginPage(this.page);
     //const titre = await this.addPost.TitrePostPage(); // Appelle la fonction pour récupérer le titre
-    await loginPage.goto(config.baseUrl);
-    await loginPage.login(config.username, config.password);
+    await loginPage.goto(url);
+    await loginPage.login(username, password);
 
     
     
