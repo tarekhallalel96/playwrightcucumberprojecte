@@ -2,6 +2,7 @@ import { Given, When, Then, Before, After } from '@cucumber/cucumber';
 import { Browser, Page, chromium } from 'playwright';
 import { LoginPage } from '../pages/LoginPage';
 import { expect } from '@playwright/test';
+import DashBoardPage from '../pages/DashboardPage';
 
 const config = require('../config'); // Importez la configuration
 
@@ -32,14 +33,14 @@ When('I login with username {string} and password {string}', async function (use
   await loginPage.SaisirUsername(username);
   await loginPage.SaisirPassword(password);
   await loginPage.clicSurLogin();
-  //await loginPage.login(username, password);
+  
 });
 
 Then('I should be redirected to the dashboard', async function () {
-  console.log(" Vérification de la présence du dashboard...");
-  const isDashboardVisible = await loginPage.isDashboardVisible();
-  expect(await this.page.isVisible('.dashboard'));
+  const isVisible = await loginPage.isDashboardVisible();
+  console.log(`Dashboard is visible: ${isVisible}`);
   
+  expect(isVisible).toBeTruthy();   
 });
 
 Then('I should see an error message', async function () {

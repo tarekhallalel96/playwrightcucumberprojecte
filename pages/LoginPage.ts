@@ -40,8 +40,8 @@ export class LoginPage {
     this.elements.dashboard();
   }
   async isDashboardVisible(): Promise<boolean> {
-    return await this.page.isVisible('.dashboard');
-  }
+    return await this.page.locator('h1', { hasText: 'Site administration' }).isVisible();
+}
 
   async login(username:string, password:string){
     await this.elements.username().fill(username);

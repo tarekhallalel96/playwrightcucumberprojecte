@@ -1,3 +1,0 @@
-username,password,env
-testeur_integration,testeur_qa,http://192.168.1.95:9092/admin/
-testeur_integration_2,testeur_qa_2,http://192.168.1.95:9092/admin/

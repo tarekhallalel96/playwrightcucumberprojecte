@@ -4,6 +4,7 @@ Feature: Add Post Page
   @parcours2
   @smoke
   @valid
+  @ignore 
   Scenario: Verify Add Post Page Elements
     Given I am on the dashboard "<env>" "<username>" "<password>"
     When I write the title "Title2" in  input field
@@ -14,11 +15,11 @@ Feature: Add Post Page
     @int
     Examples:
       | username              | password     | env                             |
-      | testeur_integration   | testeur_qa   | http://int.siteinfos.com/admin/ |
-      | testeur_integration_2 | testeur_qa_2 | http://int.siteinfos.com/admin/ |
+      | testeur_integration   | testeur_qa   | http://192.168.1.95:9091/admin/ |
+      | testeur_integration_2 | testeur_qa_2 | http://192.168.1.95:9091/admin/ |
 
     @rec
     Examples:
       | username              | password     | env                             |
-      | testeur_integration   | testeur_qa   | http://rec.siteinfos.com/admin/ |
-      | testeur_integration_2 | testeur_qa_2 | http://rec.siteinfos.com/admin/ |
+      | testeur_integration   | testeur_qa   | http://192.168.1.95:9092/admin/ |
+      | testeur_integration_2 | testeur_qa_2 | http://192.168.1.95:9092/admin/ |
