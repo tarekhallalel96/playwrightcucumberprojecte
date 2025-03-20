@@ -4,7 +4,7 @@ import { expect } from '@playwright/test';
 import AddPost from '../pages/AddPost';
 import LoginPage from '../pages/LoginPage';
 import DashBoardPage from '../pages/DashboardPage';
-const config = require('../config'); 
+// const config = require('../config'); 
 
 let addPost: AddPost;
 let loginPage: LoginPage;
