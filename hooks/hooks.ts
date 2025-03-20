@@ -5,7 +5,7 @@ let browser: Browser;
 let page: Page;
 
 Before(async function () {
-  browser = await chromium.launch({ headless: true });
+  browser = await chromium.launch({ headless: false });
   page = await browser.newPage();
 
   await page.context().tracing.start({

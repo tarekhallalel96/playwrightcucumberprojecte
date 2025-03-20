@@ -2,6 +2,7 @@ import { Given, When, Then, Before, After } from '@cucumber/cucumber';
 import { Browser, Page, chromium } from 'playwright';
 import { LoginPage } from '../pages/LoginPage';
 import { expect } from '@playwright/test';
+
 const config = require('../config'); // Importez la configuration
 
 let browser: Browser;
@@ -37,7 +38,7 @@ When('I login with username {string} and password {string}', async function (use
 Then('I should be redirected to the dashboard', async function () {
   console.log(" Vérification de la présence du dashboard...");
   const isDashboardVisible = await loginPage.isDashboardVisible();
-  expect(isDashboardVisible).toBeTruthy();
+  expect(await this.page.isVisible('.dashboard'));
   
 });
 

@@ -1,0 +1,5 @@
+username,password,env
+testeur_integration_faux,testeur_qa,http://192.168.1.95:9091/admin/
+testeur_integration_2_faux,testeur_qa_2,http://192.168.1.95:9091/admin/
+testeur_integration_faux,testeur_qa,http://192.168.1.95:9091/admin/
+testeur_integration_2_faux,testeur_qa_2,http://192.168.1.95:9091/admin/

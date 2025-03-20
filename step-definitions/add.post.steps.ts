@@ -4,18 +4,18 @@ import { expect } from '@playwright/test';
 import AddPost from '../pages/AddPost';
 import LoginPage from '../pages/LoginPage';
 import DashBoardPage from '../pages/DashboardPage';
-// const config = require('../config'); 
+const config = require('../config'); 
 
 let addPost: AddPost;
 let loginPage: LoginPage;
 let dashboard: DashBoardPage;
 let page: Page;
 
-Given('I am on the dashboard {string} {string} {string}', async function(url: string, username:string, password: string)  {
+Given('I am on the dashboard', async function()  {
     loginPage = new LoginPage(this.page);
     //const titre = await this.addPost.TitrePostPage(); // Appelle la fonction pour récupérer le titre
-    await loginPage.goto(url);
-    await loginPage.login(username, password);
+    await loginPage.goto(config.baseUrl);
+    await loginPage.login(config.username, config.password);
 
     
     

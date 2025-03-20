@@ -9,14 +9,14 @@ Feature: Login
     @int
     Examples:
       | username              | password     | env                             |
-      | testeur_integration   | testeur_qa   | http://int.siteinfos.com/admin/ |
-      | testeur_integration_2 | testeur_qa_2 | http://int.siteinfos.com/admin/ |
+      | testeur_integration   | testeur_qa   | http://192.168.1.95:9091/admin/ |
+      | testeur_integration_2 | testeur_qa_2 | http://192.168.1.95:9091/admin/|
 
     @rec
     Examples:
       | username              | password     | env                             |
-      | testeur_integration   | testeur_qa   | http://rec.siteinfos.com/admin/ |
-      | testeur_integration_2 | testeur_qa_2 | http://rec.siteinfos.com/admin/ |
+      | testeur_integration   | testeur_qa   | http://192.168.1.95:9092/admin/ |
+      | testeur_integration_2 | testeur_qa_2 | http://192.168.1.95:9092/admin/|
 
   @smoke @invalid @negative
   Scenario: Failed login with wrong credentials
@@ -27,15 +27,15 @@ Feature: Login
     @int
     Examples:
       | username                 | password     | env                     |
-      | testeur_integration_faux | testeur_qa   | int.siteinfos.com/admin |
-      | testeur_integration_2    | testeur_qa_2 | int.siteinfos.com/admin |
-      | testeur_integration      | testeur_qa   | int.siteinfos.com/admin |
-      | testeur_integration_2    | testeur_qa_2 | int.siteinfos.com/admin |
+      | testeur_integration_faux | testeur_qa   | http://192.168.1.95:9091/admin/ |
+      | testeur_integration_2_faux    | testeur_qa_2 | http://192.168.1.95:9091/admin/ |
+      | testeur_integration_faux     | testeur_qa   | http://192.168.1.95:9091/admin/ |
+      | testeur_integration_2_faux    | testeur_qa_2 | http://192.168.1.95:9091/admin/ |
 
     @rec
     Examples:
       | username                 | password     | env                     |
-      | testeur_integration_faux | testeur_qa   | rec.siteinfos.com/admin |
-      | testeur_integration_2    | testeur_qa_2 | rec.siteinfos.com/admin |
-      | testeur_integration      | testeur_qa   | rec.siteinfos.com/admin |
-      | testeur_integration_2    | testeur_qa_2 | rec.siteinfos.com/admin |
+      | testeur_integration_faux | testeur_qa   | http://192.168.1.95:9092/admin/|
+      | testeur_integration_2_faux    | testeur_qa_2 | http://192.168.1.95:9092/admin/ |
+      | testeur_integration_faux      | testeur_qa   | http://192.168.1.95:9092/admin/ |
+      | testeur_integration_2_faux    | testeur_qa_2 | http://192.168.1.95:9092/admin/ |
